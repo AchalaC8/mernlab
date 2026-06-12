@@ -44,3 +44,15 @@ db.transactions.insertMany([
     }
 }
 ])
+
+
+db.transactions.aggregate([
+{
+    $group: {
+        _id: null,
+        TotalTransactionAmount: {
+            $sum: "$Payment.Total"
+        }
+    }
+}
+])
